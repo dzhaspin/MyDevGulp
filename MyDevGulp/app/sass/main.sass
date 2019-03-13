@@ -1,0 +1,102 @@
+@import "bin/vars"
+@import "bin/fonts"
+@import "bin/libs"
+@import "bin/mixin-media"
+@import "bin/reset.scss"
+@import "bin/toggle"
+@import "bin/popup"
+
+body
+	+rfs(16)
+	min-width: 320px
+	position: relative
+	line-height: 1.4
+	font-family: $font
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+::placeholder
+	color: #999
+::selection
+	background-color: $accent
+	color: #fff
+
+.header
+  position: absolute
+  top: 0
+  left: 0
+  padding: 30px 0
+  width: 100%
+  z-index: 100
+  &-body
+    display: flex
+    justify-content: space-between
+    align-items: center
+    +r(md)
+      flex-wrap: wrap
+.main
+  display: flex
+  align-items: center
+  padding: 100px 0
+  background: url(../img/main-bg.jpg) no-repeat center
+  background-size: cover
+  width: 100vw
+  height: 100vh
+
+section 
+  padding: 100px 0 
+
+
+h1.title
+  font-family: $font-bold
+  text-transform: uppercase
+  +rfs(56)
+h2.section-title  
+  margin-bottom: 50px
+  font-family: $font-bold
+  text-transform: uppercase
+  +rfs(40)
+p.subtitle
+  margin-bottom: 50px 
+  color: rgba($text,0.8) 
+  +rfs(20)
+
+a.link
+  display: inline-block
+  padding: 12px 30px
+  border-radius: 30px
+  color: #fff
+  +rfs(16)
+  background-color: $accent
+  &:hover
+    background-color: lighten($accent,5)    
+    text-decoration: none
+    cursor: pointer
+
+.footer
+  padding: 50px 0
+  background: $bg-dark
+  color: #fff
+  &-social
+    text-align: center
+  &-contact
+    text-align: right
+
+.arrow-up  
+  display: none
+  position: fixed
+  width: 100%
+  right: 3vh
+  bottom: 3vh
+  text-align: right
+  cursor: pointer
+  z-index: 99999
+
+@import "bin/media" // Always at the end

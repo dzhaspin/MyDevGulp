@@ -1,0 +1,117 @@
+.toggle 
+	display: none
+	justify-content: center
+	align-items: center
+	position: fixed
+	top: 20px
+	right: 30px
+	height: 50px
+	width: 50px
+	background: $accent
+	z-index: 999   
+
+
+	&:hover 
+		cursor: pointer
+	span
+		position: absolute
+		width: 22px
+		height: 2px
+		background-color: #fff
+		&:before 
+			content: ''
+			position: absolute
+			width: 22px
+			height: 2px
+			top: -6px
+			background-color: #fff
+			animation: menu-load-state-top .4s
+		&:after 
+			content: ''
+			position: absolute
+			width: 22px
+			height: 2px
+			top: 6px
+			left: 0
+			background-color: #fff
+			animation: menu-load-state-bottom .4s
+	+r(md)
+		display: flex
+
+
+.nav-menu 
+	display: flex
+	justify-content: space-between
+	+rfs(24)
+	transition: opacity .4s ease
+	opacity: 1
+	z-index: -1
+	a 
+		color: #000
+	+r(md)
+		display: block
+		padding: 60px 20px
+		position: fixed
+		top: 0
+		right: 0
+		width: 250px
+		height: 100vh
+		opacity: 0
+		background: $bg-dark
+.nav-menu li 
+	padding: 0 10px
+	margin-left: 40px
+	+r(lg)
+		margin-left: 20px
+	+r(md)
+		margin-left: 0
+		line-height: 50px
+		border-bottom: 1px solid #ccc
+
+.nav-menu li:hover 
+	background: $accent	
+.nav-menu li:hover a 
+	text-decoration: none
+.nav-menu li a 
+	color: $text
+.nav-menu li:last-child 
+	border-bottom: none
+
+.active span
+	background: none
+.active .toggle
+	transition: .3s
+	background: none
+.active .nav-menu li a 
+	color: #fff
+.active span:before 
+	top: 0
+	animation: top-rot-in .4s forwards
+.active span:after 
+	top: 0
+	animation: bot-rot-in .4s forwards
+.active .nav-menu 
+	opacity: 1
+	transition: opacity .4s ease
+	animation: menu-active-slide .4s
+	z-index: 9
+
+@keyframes menu-active-slide 
+	0% 
+		transform: translateX(500px)
+	100% 
+		transform: translateX(0)
+
+@keyframes top-rot-in 
+	0% 
+		transform: rotate(0)
+	100% 
+		transform: rotate(45deg)
+
+@keyframes bot-rot-in 
+	0% 
+		transform: rotate(0)
+	100% 
+		transform: rotate(-45deg)
+		
+

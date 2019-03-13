@@ -1,0 +1,24 @@
+{
+  "name": "Nurdev",
+  "description": "Project start build Template",
+  "main": "index.js",
+  "authors": [
+    "Nurlan Dzhaspinov"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/libs/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "rfs": "^8.0.2",
+    "bootstrap": "^4.3.1",
+    "magnific-popup": "^1.1.0"
+  }
+}
